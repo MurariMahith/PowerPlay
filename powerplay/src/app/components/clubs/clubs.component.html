@@ -1,0 +1,105 @@
+<div style="padding: 30px;">
+
+  <div *ngIf="!showAll">
+    <span *ngIf="enrolled">
+      <h1 class="text-center">Clubs I am Part of</h1>
+      <div class="flx">
+        <div class="upcoming-events wow fadeInRight" style="width: 45%;">
+          <div class="d-flex bd-highlight" style="border: 1px solid orange;margin: 50px;padding: 20px;border-radius: 5px;">
+            <div class="p-2 bd-highlight">
+              <img src="../../../assets/logos/clubs.jpeg" height="100px" width="200px">
+            </div>
+            <div class="p-2 bd-highlight">
+              <h5>club name</h5>
+              <p>members</p>
+              <p>Mode</p>
+              <span class="badge badge-danger">Private</span>
+            </div>
+            <div class="ml-auto p-2 bd-highlight align-self-center">
+              <button type="button" class="btn btn-outline-success">Go<i class="bi bi-caret-right-fill"></i></button>
+            </div>
+          </div>
+        </div>
+        <div class="upcoming-events wow fadeInRight" style="width: 45%;">
+          <div class="d-flex bd-highlight" style="border: 1px solid orange;margin: 50px;padding: 20px;border-radius: 5px;">
+            <div class="p-2 bd-highlight">
+              <img src="../../../assets/logos/clubs.jpeg" height="100px" width="200px">
+            </div>
+            <div class="p-2 bd-highlight">
+              <h5>Event name <i class="bi bi-award-fill"></i></h5>
+              <p>about event</p>
+              <p>time or location</p>
+              <span class="badge badge-success">Joined</span>
+            </div>
+            <div class="ml-auto p-2 bd-highlight align-self-center">
+              <button type="button" class="btn btn-outline-success">Go<i class="bi bi-caret-right-fill"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </span>
+
+  
+  
+<!--   
+    <h1 class="text-center">Top clubs in India</h1>
+    <div class="flx">
+      <div class="upcoming-events wow fadeInRight" style="width: 45%;">
+        <div class="d-flex bd-highlight" style="border: 1px solid orange;margin: 50px;padding: 20px;border-radius: 5px;">
+          <div class="p-2 bd-highlight">
+            <img src="../../../assets/logos/clubs.jpeg" height="100px" width="200px">
+          </div>
+          <div class="p-2 bd-highlight">
+            <h5>club name</h5>
+            <p>members</p>
+            <p>Mode</p>
+            <span class="badge badge-primary">Public</span>
+          </div>
+          <div class="ml-auto p-2 bd-highlight align-self-center">
+            <button type="button" class="btn btn-outline-success">Go<i class="bi bi-caret-right-fill"></i></button>
+          </div>
+        </div>
+      </div>
+      <div class="upcoming-events wow fadeInRight" style="width: 45%;">
+        <div class="d-flex bd-highlight" style="border: 1px solid orange;margin: 50px;padding: 20px;border-radius: 5px;">
+          <div class="p-2 bd-highlight">
+            <img src="../../../assets/logos/clubs.jpeg" height="100px" width="200px">
+          </div>
+          <div class="p-2 bd-highlight">
+            <h5>Event name</h5>
+            <p>about event</p>
+            <p>time or location</p>
+            <span class="badge badge-danger">Private</span>
+          </div>
+          <div class="ml-auto p-2 bd-highlight align-self-center">
+            <button type="button" class="btn btn-outline-success">Go<i class="bi bi-caret-right-fill"></i></button>
+          </div>
+        </div>
+      </div>
+    </div> -->
+  </div>
+
+  <div class="all-clubs" *ngIf="showAll">
+    <div class="flx" style="flex-wrap: wrap;">
+
+      <div *ngFor="let c of allClubs" class="upcoming-events wow fadeInRight" style="width: 45%;">
+        <div class="d-flex bd-highlight" style="border: 1px solid orange;margin: 50px;padding: 20px;border-radius: 5px;">
+          <div class="p-2 bd-highlight">
+            <img src="../../../assets/logos/clubs.jpeg" height="100px" width="200px">
+          </div>
+          <div class="p-2 bd-highlight">
+            <h5>{{c.name}}</h5>
+            <p>{{allCategories[c.category]}}</p>
+            <span *ngIf="c.type == '1'" class="badge badge-primary">Public</span>
+            <span *ngIf="c.type == '2'" class="badge badge-danger">Private</span>
+          </div>
+          <div class="ml-auto p-2 bd-highlight align-self-center">
+            <button type="button" class="btn btn-outline-success" routerLink="/club/{{c.id}}">Go</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>

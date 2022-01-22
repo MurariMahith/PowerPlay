@@ -1,0 +1,123 @@
+
+<div *ngIf="loading" class="flx" style="margin: 0px;background-color: rgb(247,247,247);">
+
+  <div style="border: 2px solid rgb(0,182,239);border-radius: 10px;width: 35%;padding: 30px;justify-content: center;margin: 30px;">
+
+    <h1 style="font-family: 'Tangerine', cursive;font-weight: bolder;" class="text-center">Create Event</h1>
+    <form #addForm="ngForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Event Name</label> 
+        <input type="text" required [(ngModel)]="newEvent.name" name="name" #name="ngModel" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter event name">
+        <div *ngIf="name.invalid && (name.dirty || name.touched)">
+          <small *ngIf="name.errors?.required" class="error">Event Name is required</small>
+        </div>
+      </div> 
+      <div class="form-group">
+        <label for="exampleInputEmail1">Organised By</label> 
+        <select class="form-control custom-select custom-select" name="organizedBy" [(ngModel)]="newEvent.organizedBy" aria-expanded="true">          
+            <option *ngFor="let c of clubs" [value]="c.id">{{c.name}}</option>
+        </select>
+      </div>  
+      <div class="form-group">
+        <label for="exampleInputEmail1">Number of Spots</label> 
+        <input type="number" name="totalSpots" [(ngModel)]="newEvent.totalSpots" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="0">
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">Description</label> 
+        <textarea required name="description" [(ngModel)]="newEvent.description" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      </div>
+      <label for="exampleInputEmail1">Event Time</label> 
+      <div class="row">
+        <div class="col">
+          <input type="text" name="startDate" [(ngModel)]="newEvent.startDate" class="form-control" placeholder="Start Date">
+        </div>
+        <div class="col">
+          <input type="text" name="startTime" [(ngModel)]="newEvent.startTime" class="form-control" placeholder="Start Time">
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col">
+          <input type="text" name="endDate" [(ngModel)]="newEvent.endDate" class="form-control" placeholder="End Date">
+        </div>
+        <div class="col">
+          <input type="text" name="endTime" [(ngModel)]="newEvent.endTime" class="form-control" placeholder="End Time">
+        </div>
+      </div>
+      <small id="emailHelp" class="form-text text-muted">Date should be in mm/dd/yyy format. Time should be in hh:mm AM/PM format</small>
+      <br>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Event Mode</label>
+        <select class="form-control custom-select" name="mode" [(ngModel)]="newEvent.mode">
+          <option [value]="0">Online</option>
+          <option [value]="1">Offline</option>
+        </select>
+        <!-- <small id="emailHelp" class="form-text text-muted">This will be the club </small> -->
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Location</label> 
+        <input type="text" name="location" [(ngModel)]="newEvent.location" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter event location">
+        <small id="emailHelp" class="form-text text-muted">Type event address or paste zoom link if event is online</small>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="exampleInputEmail1">Category</label> 
+          <select class="form-control custom-select" name="category" [(ngModel)]="newEvent.category">
+            <option [value]="0">Technology</option>
+            <option [value]="1">Art & Culture</option>
+            <option [value]="2">Career & Business</option>
+            <option [value]="3">Health & Wellness</option>
+            <option [value]="4">Hobbies & Passion</option>
+            <option [value]="5">Diversity & Inclusion</option>
+            <option [value]="6">Religion & Spirituality</option>
+            <option [value]="7">Philosophy</option>
+            <option [value]="8">Science & Education</option>
+            <option [value]="9">Social Activities</option>
+            <option [value]="10">Familyealth</option>
+            <option [value]="11">Movies & Series</option>
+          </select>
+        </div>
+        <div class="col">
+          <label for="exampleInputEmail1">Type</label> 
+          <select class="form-control custom-select" name="eventType" [(ngModel)]="newEvent.eventType">
+            <option [value]="1">Public</option>
+            <option [value]="2">Private</option>
+          </select>
+        </div>
+      </div>
+      <br>
+      <!-- <div class="form-check">
+        <input type="checkbox"  name="oneDayEvent" [(ngModel)]="oneDayEvent" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">1 day Event</label><br><br>
+      </div> -->
+      <div class="form-group">
+        <label for="exampleInputEmail1">Invite Participants</label>  <span class="badge badge-primary" style="margin-left: 1%;">optional</span>
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="type in participant names">
+        <!-- <small id="emailHelp" class="form-text text-muted">Employees can find your club using any of these tags</small> -->
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Invite based on Location</label> <span class="badge badge-primary" style="margin-left: 1%;">optional</span>
+        <select class="form-control custom-select">
+          <!-- <span *ngFor="let c of clubs">
+            <option [value]="c.id">{{c.name}}</option>
+          </span> -->
+          <option>India</option>
+          <option>USA</option>
+          <option>Canada</option>
+        </select>
+        <!-- <small id="emailHelp" class="form-text text-muted">This will be the club </small> -->
+      </div>
+      <div class="form-check">
+        <input type="checkbox" name="inviteAllEmployees" [(ngModel)]="inviteAllEmployees" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Invite All Employees</label><br><br>
+      </div>
+      <small  id="emailHelp" class="form-text text-muted">Please fill all the required fields to Create an event successfully</small><br>
+      <div class="flx" style="justify-content: end;">
+        <button routerLink="/home" class="btn btn-danger" style="margin-right: 20px;">Cancel</button>
+        <button type="submit" [disabled]='!addForm.valid' class="btn btn-success">Create</button>
+      </div>
+
+      
+    </form>
+  </div>
+</div>

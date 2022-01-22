@@ -1,0 +1,79 @@
+<!-- <h1 style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif" class="text-center">{{loggedInUser.associatedOrganization}}</h1> -->
+<div class="flx">
+  <img src="http://ashpcsomerset.com/wp-content/uploads/2018/02/3AC0C16F-C595-4870-AFCD-516EC3D362CD.jpeg" class="wow fadeIn">
+</div>
+<div class="flx">
+  <h1 *ngIf="!schoolMode" style="font-size: 100px;font-family: 'Tangerine', cursive;">Office is more than Work!</h1>
+  <h1 *ngIf="schoolMode  && loggedInUser.role != 'Management'" style="font-size: 100px;font-family: 'Tangerine', cursive;">There is more at school than studies!</h1>
+  <h1 *ngIf="loggedInUser.role == 'Management'" style="font-size: 100px;font-family: 'Tangerine', cursive;">Manage and Track extra curricular activities at your school</h1>
+</div>
+<div class="flx" style="flex-wrap: nowrap;margin: 50px;">
+  <div class="card wow fadeInLeft" style="width: 24rem;margin: 50px;border: 0px;background-color: rgb(248,249,250);">
+    <img class="card-img-top" src="https://r10.ieee.org/bombay-nano/wp-content/uploads/sites/131/events.jpg" alt="Card image cap" height="188px">
+    <div class="card-body">
+      <h5 class="card-title">Events</h5>
+      <p class="card-text">some thing about events may be description time or mode online or offline or time etc</p>
+      <a routerLink="/events" class="btn btn-outline-dark" style="margin-right: 10px;">Explore Events</a>
+      <a *ngIf="canCreateEvents" routerLink="/createEvent" class="btn btn-outline-dark">Create Event</a>
+    </div>
+  </div>
+  <div class="card wow fadeInRight" style="width: 24rem;margin: 50px;border: 0px;background-color: rgb(248,249,250);">
+    <img class="card-img-top" height="188px" src="https://cardinalatwork.stanford.edu/sites/cardinalatwork/files/styles/caw-banner/public/copy_of_web_program_service_banner_template_14.png?itok=1SjzggTb" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Clubs</h5>
+      <p class="card-text">what club is about no of members in club is it official club or not and anything about club </p>
+      <a routerLink="/clubs" class="btn btn-outline-dark" style="margin-right: 10px;">Explore Clubs</a>
+      <a *ngIf="canCreateClubs" routerLink="/createClub" class="btn btn-outline-dark">Create Club</a>
+    </div>
+  </div>
+</div>
+<div class="upcoming-events-header" style="margin: 50px;margin-bottom: 10px;">
+  <div class="d-flex bd-highlight">
+    <div class="p-2 w-100 bd-highlight">
+      <h2>Your Next Event</h2>
+    </div>
+    <div class="p-2 flex-shrink-1 bd-highlight">
+      <button type="button" class="btn btn-outline-danger" routerLink="/events">More events you are attending</button>
+    </div>
+  </div>
+</div>
+<div class="upcoming-events wow fadeInRight">
+  <div class="d-flex bd-highlight" style="border: 1px solid orange;margin: 50px;padding: 20px;border-radius: 5px;">
+    <div class="p-2 bd-highlight">
+      <img src="../../../assets/logos/events.jpg" height="100px" width="200px">
+    </div>
+    <div class="p-2 bd-highlight">
+      <h5>{{allEvents[0].name}}</h5>
+      <p>{{allEvents[0].description}}</p>
+      <!-- <p>{{allEvents[0].location}}</p> -->
+      <p> {{allEvents[0].startTime}}</p>
+    </div>
+    <div class="ml-auto p-2 bd-highlight align-self-center">
+      <button type="button" routerLink="/event/{{allEvents[0].id}}" class="btn btn-outline-success">Attend<i class="bi bi-caret-right-fill"></i></button>
+    </div>
+  </div>
+</div>
+
+<div class="flx" style="background-color: rgb(248,249,250);">
+  <div class="find" style="margin: 50px;padding: 10px;">
+    <h1 class="text-center">Find what you love</h1>
+  </div>
+  <div class="tags" style="margin: 50px;padding: 10px;">
+    <h1 class="text-center">Search for best clubs</h1>
+  </div>
+</div>
+
+<div class="scrollable">
+  <div class="card" *ngFor="let c of allClubs" style="width: 18rem;margin: 50px;border: 0px;background-color: rgb(248,249,250);">
+    <img class="card-img-top" src="../../../assets/logos/clubs.jpeg" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{c.name}}</h5>
+      <span *ngIf="c.type == '1'" class="badge badge-primary">Public</span>
+      <span *ngIf="c.type == '2'" class="badge badge-danger">Private</span><br><br>
+      <a routerLink="/club/{{c.id}}" class="btn btn-outline-dark">Explore Club</a>
+    </div>
+  </div>
+
+
+  
+</div>

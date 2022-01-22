@@ -1,0 +1,111 @@
+<div style="padding: 20px;">
+
+
+  <span *ngIf="paramsInUrl.attending">
+    <h1 class="text-center">Events I am attending</h1>
+    <div class="list-of-events flx" style="flex-wrap: wrap;">
+      <div class="card" *ngFor="let e of allEvents" style="width: 18rem;margin: 50px;border: 0px;background-color: rgb(248,249,250);">
+        <img class="card-img-top" src="../../../assets/logos/events.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{e.name}} <span class="badge badge-dark">Enrolled</span></h5>
+          <p class="card-text">{{e.description}}</p>
+          <a routerLink="/event/{{e.id}}" class="btn btn-outline-dark">Explore Event</a>
+        </div>
+      </div>
+    </div>
+  </span>
+
+  <span *ngIf="paramsInUrl.today">
+    <h1 class="text-center">Today's Events</h1>
+    <div class="list-of-events flx" style="flex-wrap: wrap;">
+      <div class="card" *ngFor="let e of allEvents" style="width: 18rem;margin: 50px;border: 0px;background-color: rgb(248,249,250);">
+        <img class="card-img-top" src="../../../assets/logos/events.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{e.name}} <span class="badge badge-primary">Today</span></h5>
+          <p class="card-text">{{e.description}}</p>
+          <a routerLink="/event/{{e.id}}" class="btn btn-outline-dark">Explore Event</a>
+        </div>
+      </div>
+    </div>
+  </span>
+
+  <span *ngIf="paramsInUrl.club">
+    <h1 class="text-center">Events By different Clubs</h1>
+    <div class="list-of-events flx" style="flex-wrap: wrap;">
+      <div class="card" *ngFor="let e of allEvents" style="width: 18rem;margin: 50px;border: 0px;background-color: rgb(248,249,250);">
+        <img class="card-img-top" src="../../../assets/logos/events.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{e.name}} </h5>
+          <p class="card-text">{{e.description}}</p>
+          <a routerLink="/event/{{e.id}}" class="btn btn-outline-dark">Explore Event</a>
+        </div>
+      </div>
+    </div>
+  </span>
+
+  <span *ngIf="paramsInUrl.online">
+    <h1 class="text-center">Online Events</h1>
+    <div class="list-of-events flx" style="flex-wrap: wrap;">
+      <div class="card" *ngFor="let e of allEvents" style="width: 18rem;margin: 50px;border: 0px;background-color: rgb(248,249,250);">
+        <img class="card-img-top" src="../../../assets/logos/events.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{e.name}} <span class="badge badge-success">Online</span></h5>
+          <p class="card-text">{{e.description}}</p>
+          <a routerLink="/event/{{e.id}}" class="btn btn-outline-dark">Explore Event</a>
+        </div>
+      </div>
+    </div>
+  </span>
+
+  <span *ngIf="paramsInUrl.offline">
+    <h1 class="text-center">Offline Events</h1>
+    <div class="list-of-events flx" style="flex-wrap: wrap;">
+      <div class="card" *ngFor="let e of allEvents" style="width: 18rem;margin: 50px;border: 0px;background-color: rgb(248,249,250);">
+        <img class="card-img-top" src="../../../assets/logos/events.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{e.name}}</h5>
+          <p class="card-text">{{e.description}}</p>
+          <a routerLink="/event/{{e.id}}" class="btn btn-outline-dark">Explore Event</a>
+        </div>
+      </div>
+    </div>
+  </span>
+
+  <span *ngIf="paramsInUrl.general">
+    <h1 class="text-center">General Events</h1>
+    <div class="list-of-events flx" style="flex-wrap: wrap;">
+      <div class="card" *ngFor="let e of allEvents" style="width: 18rem;margin: 50px;border: 0px;background-color: rgb(248,249,250);">
+        <img class="card-img-top" src="../../../assets/logos/events.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{e.name}}</h5>
+          <p class="card-text">{{e.description}}</p>
+          <a routerLink="/event/{{e.id}}" class="btn btn-outline-dark">Explore Event</a>
+        </div>
+      </div>
+    </div>
+  </span>
+
+  <span *ngIf="showAll || paramsInUrl.all">
+    <h1 class="text-center">All Events</h1>
+    <div class="list-of-events flx" style="flex-wrap: wrap;overflow-y: visible;max-height: none;">
+      <!-- <div class="card" style="width: 18rem;margin: 50px;border: 0px;background-color: rgb(248,249,250);">
+        <img class="card-img-top" src="../../../assets/logos/events.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Discussion on Lord of Rings</h5>
+          <p class="card-text">Discuss about lord of rings </p>
+          <a routerLink="/event/2" class="btn btn-outline-dark">Explore Event</a>
+        </div>
+      </div> -->
+      <div class="card" *ngFor="let e of allEvents" style="width: 18rem;margin: 50px;border: 0px;background-color: rgb(248,249,250);">
+        <img class="card-img-top" src="../../../assets/logos/events.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{e.name}}</h5>
+          <p class="card-text">{{e.description}}</p>
+          <a routerLink="/event/{{e.id}}" class="btn btn-outline-dark">Explore Event</a>
+        </div>
+      </div>
+    </div>
+  </span>
+
+
+</div>

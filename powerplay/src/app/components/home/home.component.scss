@@ -1,0 +1,15 @@
+.scrollable
+{
+      //border: 2px solid black;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  margin-top: none;
+  padding-top: none;
+
+  .card {
+    display: inline-block;
+    // margin: 10px;
+    // width: 300px;
+  }
+}

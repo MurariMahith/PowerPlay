@@ -1,0 +1,172 @@
+<div style="background-color: rgb(247,247,247);padding: 20px;min-height: 100vh;">
+  <!-- <div class="d-flex bd-highlight mb-3">
+    <div class="p-2 bd-highlight">
+      <img src="../../../assets/logos/ps.jpeg" width="150" height="150" class="d-inline-block align-top" alt="" style="border-radius: 100px;">
+    </div>
+    <div class="p-2 bd-highlight align-self-center" style="margin-left: 50px;">
+      <h1>{{loggedInUser.name}} - {{activityScore}}</h1>
+      <h4>{{loggedInUser.role}} at {{loggedInUser.associatedOrganization}}</h4>
+      <h6 *ngIf="presidentforClubs.length > 0">President for <span *ngFor="let c of presidentforClubs">{{c.name}}</span> </h6>
+    </div>
+  </div> -->
+  <div class="flx">
+    <img src="../../../assets/logos/ps.jpeg" width="150" height="150" class="d-inline-block align-top" alt="" style="border-radius: 100px;">
+  </div>
+  <h1 class="text-center">{{loggedInUser.name}}</h1>
+  <h4 class="text-center">{{loggedInUser.role}} at {{loggedInUser.associatedOrganization}}</h4>
+  <h6 class="text-center" *ngIf="presidentforClubs.length > 0">President for <span *ngFor="let c of presidentforClubs">{{c.name}}</span> </h6>
+  <h6 class="text-center">Activity Score: 25</h6>
+  <!-- {{activityScore}} -->
+  
+  
+  <br>
+
+  <span class="flx">
+    <div id="accordion" style="width: 50%;">
+      <div class="card">
+        <div class="card-header" id="headingZero"  data-toggle="collapse" data-target="#collapseZero">
+          <h5 class="mb-0">
+            <button class="btn " data-toggle="collapse" data-target="#collapseZero" aria-expanded="true" aria-controls="collapseZero">
+              Clubs I am Part of
+            </button>
+          </h5>
+        </div>
+    
+        <div id="collapseZero" class="collapse show" aria-labelledby="headingZero" data-parent="#accordion">
+          <div class="card-body">
+            <ul class="list-group">
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Book Club
+                <button type="button" class="btn btn-outline-primary">Visit</button>
+                
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Cooking Club
+                <button type="button" class="btn btn-outline-primary">Visit</button>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Comedy Club
+                <button type="button" class="btn btn-outline-primary">Visit</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="headingOne"  data-toggle="collapse" data-target="#collapseOne">
+          <h5 class="mb-0">
+            <button class="btn " data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              Clubs I created
+            </button>
+          </h5>
+        </div>
+    
+        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+          <div class="card-body">
+            <ul class="list-group">
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Book Club and Event
+                <button type="button" class="btn btn-outline-primary">Visit</button>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Avengers Movie discussion
+                <button type="button" class="btn btn-outline-primary">Visit</button>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Yoga and meditation
+                <button type="button" class="btn btn-outline-primary">Visit</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="headingTwo" data-toggle="collapse" data-target="#collapseTwo">
+          <h5 class="mb-0">
+            <button class="btn  collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              My Events
+            </button>
+          </h5>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+          <div class="card-body">
+            <ul class="list-group">
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Book Club and Event
+                <button type="button" class="btn btn-outline-primary">Open</button>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Book Club and Event
+                <button type="button" class="btn btn-outline-primary">Open</button>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Avengers Movie discussion
+                <button type="button" class="btn btn-outline-primary">Open</button>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Yoga and meditation
+                <button type="button" class="btn btn-outline-primary">Open</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="headingThree" data-toggle="collapse" data-target="#collapseThree">
+          <h5 class="mb-0">
+            <button class="btn  collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              Upcoming Events
+            </button>
+          </h5>
+        </div>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+          <div class="card-body">
+            <ul class="list-group">
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Book Club and Event
+                <button type="button" class="btn btn-outline-primary">Open</button>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Avengers Movie discussion
+                <button type="button" class="btn btn-outline-primary">Open</button>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Yoga and meditation
+                <button type="button" class="btn btn-outline-primary">Open</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="headingFour" data-toggle="collapse" data-target="#collapseFour">
+          <h5 class="mb-0">
+            <button class="btn collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+              Old Events
+            </button>
+          </h5>
+        </div>
+        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+          <div class="card-body">
+            <ul class="list-group">
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Book Club and Event
+                <button type="button" class="btn btn-outline-primary">Open</button>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Avengers Movie discussion
+                <button type="button" class="btn btn-outline-primary">Open</button>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Yoga and meditation
+                <button type="button" class="btn btn-outline-primary">Open</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </span>
+
+
+</div>

@@ -1,0 +1,50 @@
+<div style="background-color: white;padding: 30px;">
+  <h5 class="text-center">Hi, {{loggedInUser.name}}. Here are some more insights for you!</h5>
+  <h3 class="text-center">Clubs</h3>
+  <div class="flx" style="padding: 10px;justify-content: space-evenly;flex-wrap: wrap;">
+    
+    
+    <fusioncharts style="margin: 20px;"
+        width={{width}}
+        height={{height}}
+        type={{type1}}
+        dataFormat={{dataFormat}}
+        [dataSource]=dataSourceForClubVsEvents >
+    </fusioncharts>
+
+    <fusioncharts style="margin: 20px;"
+        width={{width}}
+        height={{height}}
+        type={{type1}}
+        dataFormat={{dataFormat}}
+        [dataSource]=dataSourceForClubVsMembers >
+    </fusioncharts>
+    
+  </div>
+  <h3 class="text-center">Events</h3>
+  <div class="flx" style="padding: 10px;justify-content: space-evenly;flex-wrap: wrap;">
+    <fusioncharts style="margin: 20px;"
+        width={{width}}
+        height={{height}}
+        type={{type1}}
+        dataFormat={{dataFormat}}
+        [dataSource]=dataSourceForEventsVsEnrolled >
+    </fusioncharts>
+
+    <fusioncharts style="margin: 20px;"
+        width={{width}}
+        height={{height}}
+        type={{type1}}
+        dataFormat={{dataFormat}}
+        [dataSource]=dataSourceForEventsVsActualAttended >
+    </fusioncharts>
+  </div>
+</div>
+
+<!-- <fusioncharts
+    width={{width}}
+    height={{height}}
+    type={{type}}
+    dataFormat={{dataFormat}}
+    [dataSource]=dataSourceForClubVsEvents >
+</fusioncharts> -->

@@ -1,0 +1,53 @@
+<div style="background-color: rgb(247,247,247);padding: 20px;">
+  <div class="d-flex bd-highlight mb-3">
+    <div class="p-2 bd-highlight">
+      <img src="../../../assets/logos/ps.jpeg" width="150" height="150" class="d-inline-block align-top" alt="" style="border-radius: 100px;">
+    </div>
+    <div class="p-2 bd-highlight align-self-center" style="margin-left: 50px;">
+      <h1>{{currentEvent.name}}</h1>
+      <!-- <h6>Number of participants: 30</h6>
+      <h6>Empty Spots: 4</h6>
+      <h6>Seminar hall 4</h6> -->
+      <h4>Organised By: {{organizedBy}}</h4>
+
+      <!-- <h6>Clubs: 2 Events: 5</h6> -->
+    </div>
+    <div class="ml-auto p-2 bd-highlight align-self-center">
+      <button type="button" class="btn btn-outline-primary" style="margin: 5px;">Enroll</button>
+      <button type="button" class="btn btn-outline-success" style="margin: 5px;">Attend</button>
+      <button type="button" class="btn btn-outline-danger" style="margin: 5px;">Un-Enroll</button>
+    </div>
+  </div>
+  <br>
+  <span class="flx" style="justify-content:space-evenly;">
+    <h6 class="text-center">Number of participants: 30</h6>
+    <h6 class="text-center">Empty Spots: 4</h6>
+    <h6 class="text-center">{{currentEvent.location}}</h6>
+    <h6 class="text-center">{{currentEvent.startDate}} {{currentEvent.startTime}} to {{currentEvent.endDate}} {{currentEvent.endTime}}</h6>
+    <h6 *ngIf="currentEvent.eventType == '1'" class="text-center">Public event</h6>
+    <h6 *ngIf="currentEvent.eventType == '2'" class="text-center">Private event</h6>
+  </span>
+
+  <span style="padding: 20px;">
+    <p>Dr Sara Baker is a researcher into early childhood at the Faculty of Education. She is interested in the role of the brain’s prefrontal lobe in how young children learn to adapt their understanding to an ever-shifting environment. Many of her studies chart changes in children’s ways of thinking about the world. She uses longitudinal designs to examine the shape of individual children’s learning curves month by month.
+
+ 
+
+      Research by Baker and colleagues is contributing to an understanding of the acquisition of skills essential to learning. She explains: “The brain’s frontal lobe is one of the four major divisions of the cerebral cortex. It regulates decision-making, problem-solving and behaviour. We call these functions executive skills – they are at the root of the cognitive differences between humans and other animals. My executive functions enable me to resist a slice of cake when I know I’m soon having dinner.” In an experiment designed to identify the age at which executive skills develop, Baker and colleagues used a row of four interconnected boxes to test children’s ability to apply their knowledge of basic physics. A ball rolled down an incline entered the first box and disappeared. A barrier (its top visible) was slotted in between two of the boxes to stop the ball rolling any further. The children were asked to open the door of the box in which the ball was hidden.
+      
+       
+      
+      Aged 29–31 months, only 32% of the children correctly identified the location of the ball by working out that the barrier would have stopped it. Aged 32–36 months, 66% of children were successful. Toddlers under the age of three appear to understand the principles of solidity and continuity, but have trouble acting on this knowledge. A single month in a child’s age affected their ability to carry out the task correctly.</p>
+  </span>
+
+  <div class="flx" *ngIf="showGraph">
+    <fusioncharts style="margin: 20px;"
+    width={{width}}
+    height={{height}}
+    type={{type}}
+    dataFormat={{dataFormat}}
+    [dataSource]=dataSourceForClubVsEvents >
+</fusioncharts>
+  </div>
+  
+</div>
